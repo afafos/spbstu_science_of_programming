@@ -1,26 +1,4 @@
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-*.sln
-**/.vs
-*.obj
-*.log
-*.recipe
-*.ilk
-*.pdb
-*.tlog
-*.vcxproj.FileListAbsolute.txt
-*.idb
-*.iobj
-*.ipdb
-**/dllmain.cpp
-**/framework.h
-**/pch.cpp
-**/pch.h
-*.exp
-*.lib
-*.pch
-**/Release
+
 
 
 

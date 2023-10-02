@@ -8,7 +8,7 @@
 
 int main() {
 
-    HINSTANCE hDLL = LoadLibrary(L"plugins\\funcsin.dll"); // Loading a DLL File
+    HINSTANCE hDLL = LoadLibrary("plugins\\funcsin.dll"); // Loading a DLL File
     if (hDLL == NULL) {
         std::cerr << "Error loading DLL" << std::endl;
         return 1;
@@ -21,7 +21,7 @@ int main() {
     }
 
 
-    hDLL = LoadLibrary(L"plugins\\funccos.dll"); 
+    hDLL = LoadLibrary("plugins\\funccos.dll"); 
     if (hDLL == NULL) {
         std::cerr << "Error loading DLL" << std::endl;
         return 1;
@@ -34,7 +34,7 @@ int main() {
     }
 
 
-    hDLL = LoadLibrary(L"plugins\\functan.dll"); 
+    hDLL = LoadLibrary("plugins\\functan.dll"); 
     if (hDLL == NULL) {
         std::cerr << "Error loading DLL" << std::endl;
         return 1;
@@ -47,7 +47,7 @@ int main() {
     }
 
 
-    hDLL = LoadLibrary(L"plugins\\funcln.dll"); 
+    hDLL = LoadLibrary("plugins\\funcln.dll"); 
     if (hDLL == NULL) {
         std::cerr << "Error loading DLL" << std::endl;
         return 1;
@@ -60,7 +60,7 @@ int main() {
     }
 
 
-    hDLL = LoadLibrary(L"plugins\\funcpower.dll"); 
+    hDLL = LoadLibrary("plugins\\funcpower.dll"); 
     if (hDLL == NULL) {
         std::cerr << "Error loading DLL" << std::endl;
         return 1;
