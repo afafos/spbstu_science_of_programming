@@ -24,7 +24,7 @@ int main() {
     std::string narrowExeDir(exeDir.begin(), exeDir.end());
     SetCurrentDirectoryA(narrowExeDir.c_str());
 
-    std::cout << "---- The calculator supports operations - + * / ^ sin cos tan ln ----\n  ";
+    std::cout << "---- The calculator supports operations - + * / ^ sin cos ln ----\n  ";
     Calc* calc = new Calc();
     std::vector<std::string> functions;// Scan the plugins directory for DLL files
     for (const std::filesystem::directory_entry& entry : std::filesystem::directory_iterator(path)) {

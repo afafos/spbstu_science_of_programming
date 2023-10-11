@@ -5,12 +5,17 @@
 #include <windows.h>
 #include "pch.h"
 #include <iostream>
+
 using std::string;
 
+enum class OperatorType {
+    Unary,
+    Binary
+};
 extern "C" {
 
     __declspec(dllexport)std::string sym = "cos";
-    __declspec(dllexport)int un_or_bin = 1;
+    __declspec(dllexport) OperatorType un_or_bin = OperatorType::Unary;
     __declspec(dllexport)double eval(const std::vector<double> x) {
         return std::cos(x[0]);
     }

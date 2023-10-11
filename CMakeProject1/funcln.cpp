@@ -7,11 +7,15 @@
 #include <iostream>
 using std::string;
 
+enum class OperatorType {
+    Unary,
+    Binary
+};
 
 extern "C" {
 
     __declspec(dllexport) string sym = "ln";
-    __declspec(dllexport) int un_or_bin = 1;
+    __declspec(dllexport) OperatorType un_or_bin = OperatorType::Unary;
     __declspec(dllexport) double eval(const std::vector<double> x) {
         double value = x[0];
         if (value <= 0)
