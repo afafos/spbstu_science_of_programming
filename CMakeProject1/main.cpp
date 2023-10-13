@@ -1,28 +1,10 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <filesystem>
-#include <string>
-#include <exception>
-#include <stack>
-#include <sstream>
-#include <Windows.h>
-#include <functional>
-#include <typeinfo>
 #include "struct.h"
 
 int main() {
-
-    WCHAR exePath[MAX_PATH];
-    GetModuleFileNameW(NULL, exePath, MAX_PATH);
-
-    // Extract the directory from the path to the exe file
-    std::wstring exeDir = exePath;
-    size_t pos = exeDir.find_last_of(L"\\/");
-    if (pos != std::wstring::npos) {
-        exeDir = exeDir.substr(0, pos);
-    }
-    std::string narrowExeDir(exeDir.begin(), exeDir.end());
-    SetCurrentDirectoryA(narrowExeDir.c_str());
 
     std::cout << "---- The calculator supports operations - + * / ^ sin cos ln ----\n  ";
     Calc* calc = new Calc();
@@ -62,4 +44,4 @@ int main() {
     delete calc;
 
     return 0;
-}
+};
