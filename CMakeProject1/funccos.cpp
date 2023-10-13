@@ -12,16 +12,41 @@ enum class OperatorType {
     Unary,
     Binary
 };
-extern "C" {
 
-    __declspec(dllexport)std::string sym = "cos";
-    __declspec(dllexport) OperatorType un_or_bin = OperatorType::Unary;
-    __declspec(dllexport)bool is_function = true;
-    __declspec(dllexport)double eval(const std::vector<double> x) {
-        return std::cos(x[0]);
-    }
+class MathFunction {
+public:
+    virtual ~MathFunction() = default;
 
-    __declspec(dllexport) const char* get_sym() {
+    virtual std::string getSymbol() const = 0;
+    virtual OperatorType getOperatorType() const = 0;
+    virtual int getPrecedence() const = 0;
+    virtual bool isFunction() const = 0;
+    virtual double evaluate(const std::vector<double>& args) const = 0;
+};
+
+
+class Cosine : public MathFunction {
+public:
+    std::string getSymbol() const override {
         return "cos";
     }
-}
+
+    OperatorType getOperatorType() const override {
+        return OperatorType::Unary;
+    }
+
+    int getPrecedence() const override {
+        return 0; 
+    }
+
+    bool isFunction() const override {
+        return true;
+    }
+
+    double evaluate(const std::vector<double>& args) const override {
+        if (args.size() != 1) {
+            throw std::runtime_error("Cos function requires exactly one argument.");
+        }
+        return std::cos(args[0]);
+    }
+};

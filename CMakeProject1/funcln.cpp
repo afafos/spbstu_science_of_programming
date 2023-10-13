@@ -12,21 +12,43 @@ enum class OperatorType {
     Binary
 };
 
-extern "C" {
+class MathFunction {
+public:
+    virtual ~MathFunction() = default;
 
-    __declspec(dllexport) string sym = "ln";
-    __declspec(dllexport) OperatorType un_or_bin = OperatorType::Unary;
-    __declspec(dllexport) bool is_function = true;
+    virtual std::string getSymbol() const = 0;
+    virtual OperatorType getOperatorType() const = 0;
+    virtual int getPrecedence() const = 0;
+    virtual bool isFunction() const = 0;
+    virtual double evaluate(const std::vector<double>& args) const = 0;
+};
 
-    __declspec(dllexport) double eval(const std::vector<double> x) {
-        double value = x[0];
-        if (value <= 0)
-            throw std::runtime_error("Invalid expression");
-        return std::log(value);
-    }
-
-    __declspec(dllexport) const char* get_sym() {
+class NaturalLog : public MathFunction {
+public:
+    std::string getSymbol() const override {
         return "ln";
     }
-    
-}
+
+    OperatorType getOperatorType() const override {
+        return OperatorType::Unary;
+    }
+
+    int getPrecedence() const override {
+        return 0; 
+    }
+
+    bool isFunction() const override {
+        return true;
+    }
+
+    double evaluate(const std::vector<double>& args) const override {
+        if (args.size() != 1) {
+            throw std::runtime_error("Natural logarithm function requires exactly one argument.");
+        }
+        double value = args[0];
+        if (value <= 0) {
+            throw std::runtime_error("Invalid expression");
+        }
+        return std::log(value);
+    }
+};
