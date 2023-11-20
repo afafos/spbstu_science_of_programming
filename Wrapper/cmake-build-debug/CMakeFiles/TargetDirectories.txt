@@ -1,3 +1,0 @@
-C:/Users/afana/Desktop/Program/C++/Lab_cpp_5_sem/Wrapper/cmake-build-debug/CMakeFiles/Wrapper.dir
-C:/Users/afana/Desktop/Program/C++/Lab_cpp_5_sem/Wrapper/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/afana/Desktop/Program/C++/Lab_cpp_5_sem/Wrapper/cmake-build-debug/CMakeFiles/rebuild_cache.dir
